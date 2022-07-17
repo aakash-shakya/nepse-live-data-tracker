@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "nepse floorsheet tracker"
+version = "0.0.1"
+description = ""
+authors = [
+    "aakas <official.aakas@gmail.com>"
+]
+license = "MIT"
+
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.28.1"
+beautifulsoup4 = "^4.11.1"
+
+
+
+
+[tool.poetry.dev-dependencies]
