@@ -1,9 +1,6 @@
 
-
-from datetime import datetime
 from bs4 import BeautifulSoup
-# from matplotlib.pyplot import table
-from filewriter import write_to_csv
+from filewriter import generate_excel_file
 
 
 class Scrapper:
@@ -34,18 +31,8 @@ class Scrapper:
     def find_all_table_row(self):
         table = self.find_table()
         table_rows = table.find_all('tr')
-        # self.decompose_unwanted_table_row('right')
         return table_rows
 
-
-    # def get_table_row_details(self):
-    #     table_row = self.find_all_table_row()
-    #     # table_row_details = [ row.find('td') for row in table_row]
-    #     # return table_row_details
-
-    #     for i in range(1, len(table_row)):
-    #         print(table_row[i].find('td').text)
-    
 
     '''
         arr = [
@@ -61,24 +48,10 @@ class Scrapper:
 
     def get_table_row_details_text(self):
         table_row_details = self.find_all_table_row()
-        # print(table_row_details)
         
         arr = []
         for i in range(1, len(table_row_details)):
-            # print(table_row_details[i].find_all('td'))
             arr.append(table_row_details[i].find_all('td'))
         
-        final_arr = []
+        generate_excel_file('nepse_floorsheet', arr)
 
-        with open ('filename' + str(datetime.now()) +'.xlsx', 'w') as f:
-            for i in arr:
-                for j in i:
-                    print(j.text)
-                    f.write(j.text)
-                    f.write('\t')
-                f.write('\n')
-                print('------------------------')
-        f.close()
-        # print(final_arr)
-        # write_to_csv()
-        

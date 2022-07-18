@@ -20,7 +20,7 @@ class HandleRequests:
         return response
 
     def get_response_text(self):
-        response = self.get_request()
+        response = self.post_request()
         return response.text
 
     

@@ -1,6 +1,12 @@
-import time
+from datetime import datetime
 
-# filename = 'floorsheet' + time.time() +'.csv'
 
-def write_to_csv(data):
-    pass
+def generate_excel_file(filename, arr):
+    
+    with open (filename + str(datetime.now()) +'.xlsx', 'w') as f:
+        for i in arr:
+            for j in i:
+                f.write(j.text)
+                f.write('\t')
+            f.write('\n')
+    f.close()

@@ -22,12 +22,11 @@ if __name__ == "__main__":
     url = "http://www.nepalstock.com/floorsheet/"
     body = {
         "contract-no": "",
-        "stock-symbol": "JLI",
+        "stock-symbol": "",
         "buyer": "",
         "seller": "",
         "_limit": 50
     }
     nepse_scrapper = NepseScrapper(url, body)
-    # print(nepse_scrapper.get_text())
     nepse_scrapper.scrape_data()
     
